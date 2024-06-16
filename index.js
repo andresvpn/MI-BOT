@@ -15,13 +15,16 @@ bot.start((ctx) => {
 
 bot.on('text', (ctx) => {
   const key = ctx.message.text;
+   if(key.includes("https://vpn")){
+     
+   } else {
   if(key.includes("https://")){
   const url = "https://andresvpn.github.io/VPN-MOVIE/embed?file="
   const generatedURL = generateURL(url + key);
   ctx.reply("[❗] URL GENERADA:\n" + generatedURL + "\n\nBy: @ANDRES_VPN");
   } else {
-  ctx.reply(`[❗] INGRESA UNA URL VÁLIDA\n\nBy: @ANDRES_VPN`);
-  }
+  //ctx.reply(`[❗] INGRESA UNA URL VÁLIDA\n\nBy: @ANDRES_VPN`);
+  }}
 });
 
 bot.launch().then(() => console.log('Bot iniciado'));
