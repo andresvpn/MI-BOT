@@ -1,33 +1,30 @@
-const { Telegraf } = require('telegraf');
-const fs = require('fs');
+var express = require('express');
+var cors = require('cors');
+var secure = require('ssl-express-www');
+const PORT = process.env.PORT || 8080
+const app = express();
+const start_bot1 = require("bot1.js")
+const start_bot2 = require("bot2.js")
+try {
+  app.use(express.json());
 
-const token = '7240573902:AAFEl_SPVEqba4pCPU0CCUvl_pzuHQXiqqA'; // Reemplaza con tu token de bot
-const bot = new Telegraf(token);
+  app.enable('trust proxy');
+  app.set("json spaces", 2)
+  app.use(cors())
+  //app.use(secure)
+  app.use(express.static("public"))
+  app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/bio.html");
+  })
 
-function generateURL(key) {
-  const encodedKey = Buffer.from(key).toString('base64');
-  return `https://vpn-movie-ofc.blogspot.com/2024/05/embed_27.html?r=${encodedKey}`;
+
+  start_bot2()
+  start_bot2()
+} catch (e) {
+  console.log(e)
 }
 
-bot.start((ctx) => {
-  ctx.reply('¡Bienvenido! Envía una url de streamwish para generar una nueva sin ads🚫');
-});
-
-bot.on('text', (ctx) => {
-  const key = ctx.message.text;
-   if(key.includes("https://vpn")){
-     
-   } else {
-  if(key.includes("https://")){
-  const url = "https://andresvpn.github.io/VPN-MOVIE/embed?file="
-  const generatedURL = generateURL(url + key);
-  ctx.reply("[❗] URL GENERADA:\n" + generatedURL + "\n\nBy: @ANDRES_VPN");
-  } else {
-  //ctx.reply(`[❗] INGRESA UNA URL VÁLIDA\n\nBy: @ANDRES_VPN`);
-  }}
-});
-
-bot.launch().then(() => console.log('Bot iniciado'));
-
-process.once('SIGINT', () => bot.stop('SIGINT'));
-process.once('SIGTERM', () => bot.stop('SIGTERM'));
+app.listen(PORT, () => {
+  const { GREEN, BLUE, RED, WHITE } = require('./lib/color.js');
+  console.log(`SERVIDOR FUNCIONANDO EN PUERTO:` + PORT)
+})
