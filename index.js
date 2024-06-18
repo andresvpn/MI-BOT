@@ -25,6 +25,6 @@ try {
 }
 
 app.listen(PORT, () => {
-  const { GREEN, BLUE, RED, WHITE } = require('./lib/color.js');
+ 
   console.log(`SERVIDOR FUNCIONANDO EN PUERTO:` + PORT)
 })
