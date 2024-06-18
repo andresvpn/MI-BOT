@@ -18,7 +18,7 @@ try {
   })
 
 
-  start_bot2()
+  start_bot1()
   start_bot2()
 } catch (e) {
   console.log(e)
