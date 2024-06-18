@@ -3,8 +3,8 @@ var cors = require('cors');
 var secure = require('ssl-express-www');
 const PORT = process.env.PORT || 8080
 const app = express();
-const start_bot1 = require("bot1.js")
-const start_bot2 = require("bot2.js")
+const start_bot1 = require("./bot1.js")
+const start_bot2 = require("./bot2.js")
 try {
   app.use(express.json());
 
