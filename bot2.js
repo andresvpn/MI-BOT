@@ -2,7 +2,7 @@ const start_bot2 = async () => {
 const { Telegraf } = require('telegraf');
 const fs = require('fs');
 
-const token = '7240573902:AAFEl_SPVEqba4pCPU0CCUvl_pzuHQXiqqA'; // Reemplaza con tu token de bot
+const token = '7173007163:AAFu3dra1sWjXifEn1MnunpuFRb8WIPOvnk'; // Reemplaza con tu token de bot
 const bot = new Telegraf(token);
 
 function generateURL(key) {
