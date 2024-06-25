@@ -2,7 +2,7 @@ const start_bot2 = async () => {
 const { Telegraf } = require('telegraf');
 const fs = require('fs');
 
-const token = '7173007163:AAFu3dra1sWjXifEn1MnunpuFRb8WIPOvnk'; // Reemplaza con tu token de bot
+const token = '7259875624:AAG8832iQBqHYdx0hlGvNh75nuXtBzDhmws'; // Reemplaza con tu token de bot
 const bot = new Telegraf(token);
 
 function generateURL(key) {
@@ -17,8 +17,7 @@ bot.start((ctx) => {
 bot.on('text', (ctx) => {
   const key = ctx.message.text;
   if(key.includes("https://")){
-  const url = "https://andresvpn.github.io/VPN-MOVIE/embed?file="
-  const generatedURL = generateURL(url + key);
+  const generatedURL = generateURL(key);
   ctx.reply("[❗] URL GENERADA:\n" + generatedURL + "\n\nBy: @ANDRES_VPN");
   } else {
   ctx.reply(`[❗] INGRESA UNA URL VÁLIDA\n\nBy: @ANDRES_VPN`);
